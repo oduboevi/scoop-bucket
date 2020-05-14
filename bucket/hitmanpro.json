@@ -4,7 +4,10 @@
     "version": "3.8.18.312",
     "architecture": {
         "64bit": {
-            "url": "http://files.surfright.nl/HitmanPro_x64.exe",
+            "url": [
+                "http://files.surfright.nl/HitmanPro_x64.exe",
+                "https://raw.githubusercontent.com/oduboevi/scoop-bucket/master/scripts/hitmanpro/cleanup-registry.reg"
+            ],
             "hash": "cb1e8b96648330e188c3a2b0f5c599d1b45fd916fab761244efab8e25ce457b0",
             "bin": [
                 [
