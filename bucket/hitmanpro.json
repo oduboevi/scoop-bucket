@@ -8,7 +8,10 @@
                 "http://files.surfright.nl/HitmanPro_x64.exe",
                 "https://raw.githubusercontent.com/oduboevi/scoop-bucket/master/scripts/hitmanpro/cleanup-registry.reg"
             ],
-            "hash": "cb1e8b96648330e188c3a2b0f5c599d1b45fd916fab761244efab8e25ce457b0",
+            "hash": [
+                "cb1e8b96648330e188c3a2b0f5c599d1b45fd916fab761244efab8e25ce457b0",
+                "7d6810925ce8cc25fb3f112d780bc105fb10cfb54f2bb67541df5e2424bd12b8"
+            ]
             "bin": [
                 [
                     "HitmanPro_x64.exe",
