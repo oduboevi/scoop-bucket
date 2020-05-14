@@ -1,0 +1,57 @@
+{
+    "homepage": "https://cpl.thalesgroup.com/access-management/authenticators/mobilepass-otp-download",
+    "description": "SafeNet MobilePASS for PC",
+    "version": "8.4.5",
+    "url": "http://www2.gemalto.com/sas-downloads/MobilePASS/Win/MobilePASS.exe",
+    "hash": "130abec14722d9da398cde094ff80fe0291526e174666ee20d3776cf3cae8c07",
+    "bin": [
+        "MobilePASS.exe",
+        [
+            "MobilePASS.exe",
+            "SafeNet"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "MobilePASS.exe",
+            "MobilePASS"
+        ]
+    ],
+    "post_install": [
+        "$ApplicationData = [Environment]::GetFolderPath(\"ApplicationData\")",
+        "$linkPath = \"$ApplicationData\\SafeNet\"",
+        "$targetPath = \"$persist_dir\\AppData\"",
+        "If(Test-path $targetPath) {",
+        "    If(Test-path $linkPath) {",
+        "        Remove-Item -LiteralPath \"$linkPath\" -Force -Recurse -ErrorAction SilentlyContinue",
+        "    }",
+        "} else {",
+        "    If(Test-path $linkPath) {",
+        "        md \"$persist_dir\" | out-null",
+        "        Copy-Item -Path \"$linkPath\" -Destination \"$targetPath\" -Recurse",
+        "        Remove-Item -LiteralPath \"$linkPath\" -Force -Recurse -ErrorAction SilentlyContinue",
+        "    } else {",
+        "        md \"$targetPath\" | out-null",
+        "    }",
+        "}",
+        "& \"$env:COMSPEC\" /c \"mklink /j `\"$linkPath`\" `\"$targetPath`\"\" | out-null",
+        "attrib \"$linkPath\" +R /L"
+    ],
+    "uninstaller": {
+        "script": [
+            "$ApplicationData = [Environment]::GetFolderPath(\"ApplicationData\")",
+            "$linkPath = \"$ApplicationData\\SafeNet\"",
+                "If(Test-path $linkPath) {",
+                "    attrib $linkPath -R /L",
+                "    & \"$env:COMSPEC\" /c \"rmdir `\"$linkPath`\"\"",
+                "}"
+            ]
+    },
+    "checkver": "MobilePASS for a portable USB Flash memory stick - v([\\d.]+)<\/a>",
+    "autoupdate": {
+        "url": "http://www2.gemalto.com/sas-downloads/MobilePASS/Win/MobilePASS.exe",
+        "hash": {
+            "mode": "download"
+        }
+    }
+}

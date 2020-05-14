@@ -1,0 +1,107 @@
+{
+    "homepage": "https://www.hitmanpro.com/en-us/downloads.aspx",
+    "description": "Cloud-assisted antimalware",
+    "version": "3.8.18.312",
+    "architecture": {
+        "64bit": {
+            "url": "http://files.surfright.nl/HitmanPro_x64.exe",
+            "hash": "cb1e8b96648330e188c3a2b0f5c599d1b45fd916fab761244efab8e25ce457b0",
+            "bin": [
+                [
+                    "HitmanPro_x64.exe",
+                    "HitmanPro",
+                    "/noupdate /noinstall /nostartboot /nostartmenushortcut /nodesktopshortcut"
+                ],
+                [
+                    "HitmanPro_x64.exe",
+                    "HitmanPro-reset",
+                    "/deactivate"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "HitmanPro_x64.exe",
+                    "HitmanPro",
+                    "/noupdate /noinstall /nostartboot /nostartmenushortcut /nodesktopshortcut"
+                ],
+                [
+                    "HitmanPro_x64.exe",
+                    "HitmanPro License Removal",
+                    "/deactivate"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "http://files.surfright.nl/HitmanPro.exe",
+            "hash": "2b1cd1a535ded55f42b75dc8d44cf08ce33b01d8ef0891b4ffa5bff2578a36e6",
+            "bin": [
+                [
+                    "HitmanPro.exe",
+                    "HitmanPro",
+                    "/noupdate /noinstall /nostartboot /nostartmenushortcut /nodesktopshortcut"
+                ],
+                [
+                    "HitmanPro.exe",
+                    "HitmanPro-reset",
+                    "/deactivate"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "HitmanPro.exe",
+                    "HitmanPro",
+                    "/noupdate /noinstall /nostartboot /nostartmenushortcut /nodesktopshortcut"
+                ],
+                [
+                    "HitmanPro.exe",
+                    "HitmanPro License Removal",
+                    "/deactivate"
+                ]
+            ]
+        }
+    },
+    "post_install": [
+        "$CommonAppDataPath = [Environment]::GetFolderPath(\"CommonApplicationData\")",
+        "$linkPath = \"$CommonAppDataPath\\HitmanPro\"",
+        "$targetPath = \"$persist_dir\\CommonAppData\"",
+        "If(Test-path $targetPath) {",
+        "    If(Test-path $linkPath) {",
+        "        Remove-Item -LiteralPath \"$linkPath\" -Force -Recurse -ErrorAction SilentlyContinue",
+        "    }",
+        "} else {",
+        "    If(Test-path $linkPath) {",
+        "        md \"$persist_dir\" | out-null",
+        "        Copy-Item -Path \"$linkPath\" -Destination \"$targetPath\" -Recurse",
+        "        Remove-Item -LiteralPath \"$linkPath\" -Force -Recurse -ErrorAction SilentlyContinue",
+        "    } else {",
+        "        md \"$targetPath\" | out-null",
+        "    }",
+        "}",
+        "& \"$env:COMSPEC\" /c \"mklink /j `\"$linkPath`\" `\"$targetPath`\"\" | out-null",
+        "attrib \"$linkPath\" +R /L"
+    ],
+    "uninstaller": {
+        "script": [
+            "$CommonAppDataPath = [Environment]::GetFolderPath(\"CommonApplicationData\")",
+            "$linkPath = \"$CommonAppDataPath\\HitmanPro\"",
+                "If(Test-path $linkPath) {",
+                "    attrib $linkPath -R /L",
+                "    & \"$env:COMSPEC\" /c \"rmdir `\"$linkPath`\"\"",
+                "}"
+            ]
+    },
+    "checkver": "<a href=\"https:\\/\\/www\\.hitmanpro\\.com\\/en-us\\/whatsnew\\.aspx\">Version ([\\d.]+)<\/a>",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://files.surfright.nl/HitmanPro_x64.exe"
+            },
+            "32bit": {
+                "url": "http://files.surfright.nl/HitmanPro.exe"
+            }
+        },
+        "hash": {
+            "mode": "download"
+        }
+    }
+}
