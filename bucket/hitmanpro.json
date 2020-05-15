@@ -38,8 +38,14 @@
             ]
         },
         "32bit": {
-            "url": "http://files.surfright.nl/HitmanPro.exe",
-            "hash": "2b1cd1a535ded55f42b75dc8d44cf08ce33b01d8ef0891b4ffa5bff2578a36e6",
+            "url": [
+                "http://files.surfright.nl/HitmanPro.exe",
+                "https://raw.githubusercontent.com/oduboevi/scoop-bucket/master/scripts/hitmanpro/cleanup-registry.reg"
+            ],
+            "hash": [
+                "2b1cd1a535ded55f42b75dc8d44cf08ce33b01d8ef0891b4ffa5bff2578a36e6",
+                "7d6810925ce8cc25fb3f112d780bc105fb10cfb54f2bb67541df5e2424bd12b8"
+            ],
             "bin": [
                 [
                     "HitmanPro.exe",
