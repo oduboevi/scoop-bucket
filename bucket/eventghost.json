@@ -75,7 +75,8 @@
         ]
     },
     "checkver": {
-        "github": "https://github.com/EventGhost/EventGhost"
+        "url": "https://github.com/EventGhost/EventGhost/releases/latest",
+        "regex": "<title>Release (?:v|V)?([\\d.r]+)"
     },
     "autoupdate": {
         "url": "https://github.com/EventGhost/EventGhost/releases/download/v$version/EventGhost_$version_Setup.exe"
