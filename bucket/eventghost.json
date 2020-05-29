@@ -71,6 +71,11 @@
             "    [io.compression.zipfile]::CreateFromDirectory($sourcePath, $zipPath)",
             "    ## Remove the # if you want to delete the common application data for all users.",
             "    #Remove-Item -LiteralPath \"$sourcePath\" -Force -Recurse -ErrorAction SilentlyContinue",
+            "}",
+            "## If exists, delete autostart shortcut in users startup directory.",
+            "$startup = [environment]::getfolderpath(\"Startup\")",
+            "If(Test-path $startup\\EventGhost.lnk) {",
+            "    Remove-Item -LiteralPath \"$startup\\EventGhost.lnk\"",
             "}"
         ]
     },
