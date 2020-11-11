@@ -1,7 +1,7 @@
 {
     "homepage": "https://www.hitmanpro.com/en-us/downloads.aspx",
     "description": "Cloud-assisted antimalware",
-    "version": "3.8.18.312",
+    "version": "3.8.20.314",
     "architecture": {
         "64bit": {
             "url": [
@@ -9,7 +9,7 @@
                 "https://raw.githubusercontent.com/oduboevi/scoop-bucket/master/scripts/hitmanpro/cleanup-registry.reg"
             ],
             "hash": [
-                "cb1e8b96648330e188c3a2b0f5c599d1b45fd916fab761244efab8e25ce457b0",
+                "84b4de2aa2a30edc31ad72fd35b012d54c8aac112c48abe1cfc434a9fb57511f",
                 "7d6810925ce8cc25fb3f112d780bc105fb10cfb54f2bb67541df5e2424bd12b8"
             ],
             "bin": [
@@ -43,7 +43,7 @@
                 "https://raw.githubusercontent.com/oduboevi/scoop-bucket/master/scripts/hitmanpro/cleanup-registry.reg"
             ],
             "hash": [
-                "2b1cd1a535ded55f42b75dc8d44cf08ce33b01d8ef0891b4ffa5bff2578a36e6",
+                "89e4aeabfbc2f61ac0c9e1ac540e96564c3b16c0d9d89621a7ca5e48086ee265",
                 "7d6810925ce8cc25fb3f112d780bc105fb10cfb54f2bb67541df5e2424bd12b8"
             ],
             "bin": [
@@ -96,13 +96,13 @@
         "script": [
             "$CommonAppDataPath = [Environment]::GetFolderPath(\"CommonApplicationData\")",
             "$linkPath = \"$CommonAppDataPath\\HitmanPro\"",
-                "If(Test-path $linkPath) {",
-                "    attrib $linkPath -R /L",
-                "    & \"$env:COMSPEC\" /c \"rmdir `\"$linkPath`\"\"",
-                "}"
-            ]
+            "If(Test-path $linkPath) {",
+            "    attrib $linkPath -R /L",
+            "    & \"$env:COMSPEC\" /c \"rmdir `\"$linkPath`\"\"",
+            "}"
+        ]
     },
-    "checkver": "<a href=\"https:\\/\\/www\\.hitmanpro\\.com\\/en-us\\/whatsnew\\.aspx\">Version ([\\d.]+)<\/a>",
+    "checkver": "<a href=\"https:\\/\\/www\\.hitmanpro\\.com\\/en-us\\/whatsnew\\.aspx\">Version ([\\d.]+)</a>",
     "autoupdate": {
         "architecture": {
             "64bit": {
