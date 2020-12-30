@@ -1,9 +1,9 @@
 {
     "homepage": "https://cpl.thalesgroup.com/access-management/authenticators/mobilepass-otp-download",
-    "description": "SafeNet MobilePASS for PC",
-    "version": "8.4.5",
-    "url": "http://www2.gemalto.com/sas-downloads/MobilePASS/Win/MobilePASS.exe",
-    "hash": "130abec14722d9da398cde094ff80fe0291526e174666ee20d3776cf3cae8c07",
+    "description": "SafeNet MobilePASS",
+    "version": "8.4.6",
+    "url": "https://fdsext.gemalto.com/filesSN/Index/79cca6a24fcc41c48a6dc31162a9ee7e#/MobilePASS.exe",
+    "hash": "5F1CA6076DFE163A220AFE53EC425AF7F4ACB4523D0C9C30F9B62BF1FCD85118",
     "bin": [
         "MobilePASS.exe",
         [
@@ -46,12 +46,5 @@
                 "    & \"$env:COMSPEC\" /c \"rmdir `\"$linkPath`\"\"",
                 "}"
             ]
-    },
-    "checkver": "MobilePASS for a portable USB Flash memory stick - v([\\d.]+)<\/a>",
-    "autoupdate": {
-        "url": "http://www2.gemalto.com/sas-downloads/MobilePASS/Win/MobilePASS.exe",
-        "hash": {
-            "mode": "download"
-        }
     }
 }
