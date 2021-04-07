@@ -8,9 +8,10 @@
     "hash": "E8AC96A58313927ECCE1399F972A790853FC05C640C172DAB9DF0FD2D85E4709",
     "pre_install": [
         "$autohotkey = versiondir 'autohotkey' 'current'",
-        "Remove-Item \"$autohotkey\\SciTe\" -Recurse -Force",
+        "Remove-Item \"$autohotkey\\SciTe\" -Recurse -Force -ErrorAction SilentlyContinue",
         "New-Item -Path \"$autohotkey\\SciTE\" -Value \"$dir\" -ItemType Junction | Out-Null"
     ],
+    "extract_dir": "SciTE",
     "bin": "SciTE.exe",
     "shortcuts": [
         [
